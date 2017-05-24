@@ -26,6 +26,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
+  console.log('req.body', req.body);
+  // console.log('req.body.password', req.body.password);
   User.create(req.body)
   .then(function (user) {
     res.status(201).json(user);
@@ -56,5 +58,7 @@ router.delete('/:id', function (req, res, next) {
   })
   .catch(next);
 });
+
+
 
 module.exports = router;
